@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Restaurant extends Shop<Food> {
+public class Restaurant extends Shop<Food> {
 
 
     public Restaurant(String name, String phoneNumber,List<Food> foods){
