@@ -2,29 +2,50 @@ package sample.navigation;
 
 import com.sun.javafx.stage.StageHelper;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class Navigation {
 
-    private static ArrayList<Page> Pages = new ArrayList<Page>();
+    private static ArrayList<Page> pages = new ArrayList<Page>();
 
-    public static void to(AppPages page){
-        for (Page p : Pages){
-            if (p.type.equals(page)){
-                setScene(p);
+    public static void addPage(String name,String layoutAddress,Boolean recyclable){
+        Page page = new Page(name,layoutAddress,recyclable);
+        pages.add(page);
+    }
+
+    //private static String lastPageName;
+    public static void to(String pageName){
+        Page page = getPage(pageName);
+        setScene(page);
+    }
+
+    private static Page getPage(String name){
+        for (Page p : pages){
+            if (p.nameEquals(name)){
+                return p;
             }
         }
+        throw new NavigationException("page not found");
     }
 
-    public static Stack<Scene> scenes = new Stack<Scene>();
+    //private static Stack<Scene> scenes = new Stack<Scene>();
     private static void setScene(Page page){
-
+        Stage mainStage = getMainStage();
+        mainStage.setScene(page.createNew());
     }
 
+    private static Stage _primaryStage;
     private static Stage getMainStage(){
-        return StageHelper.getStages().get(0);
+        return _primaryStage;
+    }
+
+    public static void setPrimaryStage(Stage primaryStage) {
+        _primaryStage = primaryStage;
+        _primaryStage.setScene(new Scene(new AnchorPane()));
+        _primaryStage.show();
     }
 }

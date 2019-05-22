@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import sample.navigation.Navigation;
 import sample.storage.Users.UserManager;
 
 public class SignUpController {
@@ -19,9 +20,9 @@ public class SignUpController {
     @FXML
     private Button signup_button;
     @FXML
-    private Text signin_text;
+    private Button signin_text;
 
-    private void onSignUpButtonClicked(ActionEvent event){
+    public void onSignUpButtonClicked(ActionEvent event){
         String username = username_field.getText();
         String password = password_field.getText();
         String confirmPassword = confirm_password_field.getText();
@@ -40,5 +41,9 @@ public class SignUpController {
 
         // register the user in the database
         UserManager.signUp(username,password);
+    }
+
+    public void onLoginButtonClicked(ActionEvent event){
+        Navigation.to("login");
     }
 }

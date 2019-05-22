@@ -1,20 +1,31 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sample.storage.Storage;
+import sample.navigation.INavigation;
+import sample.navigation.Navigation;
 
-public class Main extends Application {
+public class Main extends Application implements INavigation {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Storage.seed();
-        Parent root = FXMLLoader.load(getClass().getResource("Layouts/LoginPage.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+    public void start(Stage primaryStage){
+
+        addPrimaryStage(primaryStage);
+        addPages();
+        Navigation.to("signup");
+    }
+
+    @Override
+    public void addPrimaryStage(Stage primaryStage) {
+        Navigation.setPrimaryStage(primaryStage);
+    }
+
+    @Override
+    public void addPages() {
+        final String BaseAddress = "../Layouts/";
+        Navigation.addPage("login",BaseAddress + "LoginPage.fxml",false);
+        Navigation.addPage("signup",BaseAddress + "SignupPage.fxml",false);
+        Navigation.addPage("main",BaseAddress + "MainPage.fxml",false);
     }
 
 

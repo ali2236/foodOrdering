@@ -1,0 +1,13 @@
+
+Exceptions :
+    - navigation
+
+Inheritance:
+    - Food -> Product
+    - Restaurant -> Shop
+
+Generics:
+    - Shop<T>
+
+Interfaces:
+    - Main -> INavigation
