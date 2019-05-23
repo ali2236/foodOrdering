@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import aligator.views.food.FoodCellFactory?>
+
+<VBox maxHeight="1.7976931348623157E308" prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aligator.controllers.MainController">
+   <children>
+      <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="600.0" style="-fx-background-color: #bb1eff;" />
+      <VBox prefHeight="352.0" prefWidth="600.0">
+         <children>
+            <ListView fx:id="listView" maxHeight="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" VBox.vgrow="ALWAYS">
+               <cellFactory>
+                  <FoodCellFactory />
+               </cellFactory>
+            </ListView>
+         </children></VBox>
+   </children>
+</VBox>
