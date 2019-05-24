@@ -1,4 +1,4 @@
-package aligator.views;
+package aligator.lists.order;
 
 import aligator.models.Order;
 import javafx.fxml.FXML;

@@ -10,15 +10,43 @@ public class Navigation {
 
     private static ArrayList<Page> pages = new ArrayList<Page>();
 
-    public static void addPage(String name,String layoutAddress,Boolean recyclable){
-        Page page = new Page(name,layoutAddress,recyclable);
+    public static void addPage(String name,String layoutAddress){
+        Page page = new Page(name,layoutAddress);
         pages.add(page);
     }
 
-    //private static String lastPageName;
+    public static void addDynamicPage(String name,String layoutAddress){
+        DynamicPage page = new DynamicPage(name, layoutAddress);
+        pages.add(page);
+    }
+
+    public static void addDialogPage(String name,String layoutAddress) {
+        DialogPage page = new DialogPage(name, layoutAddress);
+        pages.add(page);
+    }
+
     public static void to(String pageName){
         Page page = getPage(pageName);
         setScene(page);
+    }
+
+    public static void toDynamic(String pageName,Object object){
+        Page page = getPage(pageName);
+        if (page instanceof DynamicPage){
+            ((DynamicPage)page).setObject(object);
+            setScene(page);
+        }
+    }
+
+    public static void toDialog(String pageName) {
+        Page page = getPage(pageName);
+        if (page instanceof DialogPage){
+            Stage stage = new Stage();
+            Scene scene = page.createNew();
+            stage.setScene(scene);
+            stage.show();
+            //stage.setResizable();
+        }
     }
 
     private static Page getPage(String name){
@@ -27,7 +55,7 @@ public class Navigation {
                 return p;
             }
         }
-        throw new NavigationException("page not found");
+        throw new NavigationException("page not found or not registered");
     }
 
     //private static Stack<Scene> scenes = new Stack<Scene>();
@@ -46,4 +74,7 @@ public class Navigation {
         _primaryStage.setScene(new Scene(new AnchorPane()));
         _primaryStage.show();
     }
+
+
+
 }

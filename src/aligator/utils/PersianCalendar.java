@@ -1,4 +1,4 @@
-package aligator;
+package aligator.utils;
 
 import java.util.GregorianCalendar;
 import java.util.TimeZone;

@@ -7,14 +7,62 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" nodeOrientation="LEFT_TO_RIGHT">
     <graphic>
-        <HBox>
-            <Text fx:id="name"/>
-            <VBox>
-                <Button fx:id="more"/>
-                <Button fx:id="add_to_cart"/>
-            </VBox>
-        </HBox>
+        <AnchorPane prefHeight="80" prefWidth="600">
+            <children>
+                <HBox alignment="CENTER" layoutX="463.0" layoutY="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="10.0">
+                    <children>
+                        <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="نام غذا">
+                            <font>
+                                <Font name="Vazir" size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="16.0" right="16.0" />
+                            </HBox.margin>
+                        </Text>
+                        <Circle fx:id="icon" fill="#dddddd" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                    </children>
+                </HBox>
+                <VBox alignment="CENTER" layoutX="14.0" layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="11.0">
+                    <children>
+                        <Button fx:id="add_to_basket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxWidth="80.0" mnemonicParsing="false" style="-fx-background-color: #bb1eff;" text="اضافه به سبد" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets bottom="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="Vazir Medium" size="12.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="more" graphicTextGap="0.0" maxWidth="80.0" mnemonicParsing="false" style="-fx-background-color: #adadad;" text="بیشتر" textFill="WHITE">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <font>
+                                <Font name="Vazir Medium" size="12.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+                <HBox layoutX="312.0" layoutY="49.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="98.0">
+                    <children>
+                        <Text fx:id="delivery_price" strokeType="OUTSIDE" strokeWidth="0.0" text="هزینه ارسال : 2000">
+                            <font>
+                                <Font name="Vazir" size="13.0" />
+                            </font></Text>
+                        <Text fx:id="price" strokeType="OUTSIDE" strokeWidth="0.0" text="قیمت : 2000">
+                            <HBox.margin>
+                                <Insets left="16.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Vazir" size="13.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </HBox>
+            </children></AnchorPane>
     </graphic>
 </fx:root>

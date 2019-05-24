@@ -5,7 +5,7 @@ public abstract class Food extends Product {
     private Boolean servedHot;
     private Integer calories;
 
-    public Food(String name,Float price,Integer amount,Boolean servedHot){
+    public Food(String name,Double price,Integer amount,Boolean servedHot){
         super(name,price,"بدون توضیحات",amount);
         this.servedHot = servedHot;
     }
@@ -28,5 +28,9 @@ public abstract class Food extends Product {
         } else {
             this.calories = -1;
         }
+    }
+
+    public String getDeliveryPrice() {
+       return ((Restaurant)shop).getDeliveryPolicy(this);
     }
 }

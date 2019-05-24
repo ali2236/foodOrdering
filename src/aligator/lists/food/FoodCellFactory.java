@@ -1,4 +1,4 @@
-package aligator.views.food;
+package aligator.lists.food;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;

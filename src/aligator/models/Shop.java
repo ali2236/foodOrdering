@@ -11,6 +11,11 @@ public abstract class Shop<T extends Product> {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.products = products;
+        for (T product : products){
+            if (product!= null){
+                product.shop = this;
+            }
+        }
     }
 
     public String getName() {

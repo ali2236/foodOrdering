@@ -5,9 +5,22 @@ Exceptions :
 Inheritance:
     - Food -> Product
     - Restaurant -> Shop
+    - DynamicPage -> Page
 
 Generics:
     - Shop<T>
 
 Interfaces:
     - Main -> INavigation
+    - Restaurant -> RestaurantDeliveryPolicy
+    - Cart -> CartCallback
+
+Overloading:
+    - Cart
+
+Overriding:
+    - DynamicPage -> Page
+
+Polymorphism:
+    - Navigation -> pages
+

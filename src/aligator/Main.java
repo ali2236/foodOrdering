@@ -31,10 +31,13 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
     @Override
     public void addPages() {
         final String BaseAddress = "../layouts/";
-        Navigation.addPage("login",BaseAddress + "page_login.fxml",false);
-        Navigation.addPage("signup",BaseAddress + "page_signup.fxml",false);
-        Navigation.addPage("main",BaseAddress + "page_main.fxml",false);
-        Navigation.addPage("profile",BaseAddress + "page_profile.fxml",false);
+        Navigation.addPage("login",BaseAddress + "page_login.fxml");
+        Navigation.addPage("signup",BaseAddress + "page_signup.fxml");
+        Navigation.addPage("main",BaseAddress + "page_main.fxml");
+        Navigation.addPage("profile",BaseAddress + "page_profile.fxml");
+
+        Navigation.addDynamicPage("food",BaseAddress + "page_food.fxml");
+        Navigation.addDialogPage("cart",BaseAddress + "dialog_cart.fxml");
     }
 
     @Override
@@ -46,17 +49,17 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
 
     private void seed(){
         Restaurant r1 = new Restaurant("تک فود","+9812547852", Arrays.asList(
-                new Drink("غذای 1",9.99f,10,false,0.200),
-                new Drink("غذای 2",15.99f,10,true,1),
-                new Meal("غذای 3",5f,10,true,1),
-                new Meal("غذای 4",6.5f,10,true,1),
-                new Meal("غذای 5",52f,10,true,5)
+                new Drink("غذای 1",9.999,10,false,0.200),
+                new Drink("غذای 2",15.999,10,true,1),
+                new Meal("غذای 3",5.000,10,true,1),
+                new Meal("غذای 4",6.500,10,true,1),
+                new Meal("غذای 5",52.000,10,true,5)
         ));
 
         Restaurant r2 = new Restaurant("فودستان","+9812547852", Arrays.asList(
-                new Drink("غذای 6",7f,10,true,0.300),
-                new Drink("غذای 7",1f,10,true,0.100),
-                new Meal("غذای 8",21f,10,false,1)
+                new Drink("غذای 6",7.000,10,true,0.300),
+                new Drink("غذای 7",1.000,10,true,0.100),
+                new Meal("غذای 8",21.000,10,false,1)
         ));
 
         Storage.restaurants.add(r1);

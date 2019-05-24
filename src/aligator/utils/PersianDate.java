@@ -1,13 +1,10 @@
-package aligator.models;
+package aligator.utils;
 
-import aligator.PersianCalendar;
+import aligator.utils.PersianCalendar;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class PersianDate implements Serializable {
     private long milies;

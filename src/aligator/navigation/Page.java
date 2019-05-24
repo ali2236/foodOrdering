@@ -7,14 +7,12 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class Page {
-    private String name;
-    private Boolean recyclable;
-    private String layout;
+    protected String name;
+    protected String layout;
 
-Page(String name, String layoutAddress, Boolean recyclable){
+Page(String name, String layoutAddress){
     this.name = name;
     this.layout = layoutAddress;
-    this.recyclable = recyclable;
 }
 
     public Scene createNew(){
@@ -25,10 +23,6 @@ Page(String name, String layoutAddress, Boolean recyclable){
             p = new VBox();
         }
         return new Scene(p);
-    }
-
-    public Boolean getRecyclable() {
-        return recyclable;
     }
 
     public Boolean nameEquals(String name){

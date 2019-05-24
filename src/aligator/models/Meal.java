@@ -4,7 +4,7 @@ public class Meal extends Food {
 
     private Integer servingSize;
 
-    public Meal(String name, Float price, Integer amount,Boolean servedHot,Integer servingSize) {
+    public Meal(String name, Double price, Integer amount,Boolean servedHot,Integer servingSize) {
         super(name, price, amount,servedHot);
         this.servingSize = servingSize;
     }
