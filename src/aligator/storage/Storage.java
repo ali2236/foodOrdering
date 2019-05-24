@@ -1,7 +1,6 @@
 package aligator.storage;
 
 import aligator.models.Food;
-import aligator.models.Order;
 import aligator.models.Restaurant;
 
 import java.util.ArrayList;
@@ -19,7 +18,4 @@ public class Storage {
         return foods;
     }
 
-    public static List<Order> getOrders() {
-        return null;
-    }
 }

@@ -2,6 +2,8 @@ package aligator.controllers;
 
 import aligator.models.Food;
 import aligator.navigation.IDynamicPage;
+import aligator.navigation.Navigation;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
@@ -30,6 +32,14 @@ public class FoodController implements IDynamicPage {
             description.setText(food.getDescription());
             //TODO: Add to basket button
         }
+    }
+
+    public void goToMain(ActionEvent event){
+        Navigation.to("main");
+    }
+
+    public void openCart(ActionEvent event){
+        Navigation.toDialog("cart");
     }
 
     @Override

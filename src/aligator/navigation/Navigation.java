@@ -25,6 +25,11 @@ public class Navigation {
         pages.add(page);
     }
 
+    public static void addDynamicDialogPage(String name,String layoutAddress) {
+        DynamicDialogPage page = new DynamicDialogPage(name, layoutAddress);
+        pages.add(page);
+    }
+
     public static void to(String pageName){
         Page page = getPage(pageName);
         setScene(page);
@@ -46,6 +51,18 @@ public class Navigation {
             stage.setScene(scene);
             stage.show();
             //stage.setResizable();
+        }
+    }
+
+    public static void toDynamicDialog(String pageName,Object object){
+        Page page = getPage(pageName);
+        if (page instanceof DynamicDialogPage){
+            ((DynamicDialogPage)page).setObject(object);
+            Stage stage = new Stage();
+            Scene scene = page.createNew();
+            stage.setScene(scene);
+            stage.show();
+            stage.setResizable(false);
         }
     }
 

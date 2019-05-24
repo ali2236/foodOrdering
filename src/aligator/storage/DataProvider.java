@@ -1,7 +1,6 @@
 package aligator.storage;
 
 import aligator.models.Cart;
-import aligator.models.Order;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import aligator.models.Food;
@@ -13,11 +12,4 @@ public class DataProvider {
         return FXCollections.observableList(Storage.getFoods());
     }
 
-    public static ObservableList<Order> getOrders(){
-        return FXCollections.observableList(Storage.getOrders());
-    }
-
-    public static ObservableMap getCartItems() {
-        return Cart.getInstence().getItems();
-    }
 }

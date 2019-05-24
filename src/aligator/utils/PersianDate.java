@@ -16,7 +16,7 @@ public class PersianDate implements Serializable {
 
     @Override
     public String toString() {
-        Date d = new Date(milies);
+        Date d = new Date();
         String time = new SimpleDateFormat("HH:mm:ss").format(d);
 
         PersianCalendar persianCalendar = new PersianCalendar(milies);

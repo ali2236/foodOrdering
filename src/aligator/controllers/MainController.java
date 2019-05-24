@@ -13,9 +13,10 @@ public class MainController {
 
     @FXML
     public ListView<Food> listView;
-
     @FXML
     public Button cart;
+    @FXML
+    public Button profile;
 
     @FXML
     private void initialize() {
@@ -25,5 +26,9 @@ public class MainController {
 
     public void onCartButtonClicked(ActionEvent event){
         Navigation.toDialog("cart");
+    }
+
+    public void onProfileButtonClicked(ActionEvent event){
+        Navigation.to("profile");
     }
 }

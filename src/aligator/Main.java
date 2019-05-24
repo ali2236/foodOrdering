@@ -35,9 +35,9 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
         Navigation.addPage("signup",BaseAddress + "page_signup.fxml");
         Navigation.addPage("main",BaseAddress + "page_main.fxml");
         Navigation.addPage("profile",BaseAddress + "page_profile.fxml");
-
         Navigation.addDynamicPage("food",BaseAddress + "page_food.fxml");
         Navigation.addDialogPage("cart",BaseAddress + "dialog_cart.fxml");
+        Navigation.addDynamicDialogPage("recite",BaseAddress + "dialog_recite.fxml");
     }
 
     @Override

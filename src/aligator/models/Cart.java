@@ -1,13 +1,14 @@
 package aligator.models;
 
 
+import aligator.controllers.CartController;
 import com.sun.javafx.collections.ObservableMapWrapper;
 import javafx.collections.ObservableMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
+import java.util.Map;
 
 // singleton
 public class Cart {
@@ -15,16 +16,16 @@ public class Cart {
     public static Cart getInstence(){return cart;}
 
     // id -> product,spinner
-    private ObservableMap<Integer,CartItem> orders = new ObservableMapWrapper<>(new HashMap<>());
+    private Map<Integer,CartItem> orders = new HashMap<>();
     private List<CartCallback> callbacks = new ArrayList<>();
 
     public void setItem(Product item,Integer amount){
         if (orders.containsKey(item.getId())){ // product already in cart
              orders.get(item.getId()).amount = amount;
-             invokeUpdate();
         } else { // not yet in cart
             orders.put(item.getId(),new CartItem(item,amount));
         }
+        invokeUpdate();
     }
 
     public void setItem(Product item){
@@ -41,11 +42,15 @@ public class Cart {
 
     public void removeItem(Integer id){
         orders.remove(id);
+        invokeUpdate();
     }
 
     private void invokeUpdate(){
-        orders.put(Integer.MAX_VALUE,null);
-        orders.remove(Integer.MAX_VALUE);
+        for (CartCallback c : callbacks){
+            if (c!=null){
+                c.onCartUpdated();
+            }
+        }
     }
 
     public Double getTotal(){
@@ -58,7 +63,18 @@ public class Cart {
         return total;
     }
 
-    public ObservableMap<Integer,CartItem> getItems() {
+    public Recite generateRecite(){
+        Recite recite = new Recite();
+        recite.total = getTotal();
+        recite.products.addAll(orders.values());
+        return recite;
+    }
+
+    public Map<Integer,CartItem> getItems() {
         return orders;
+    }
+
+    public void addListener(CartCallback cartCallback) {
+        callbacks.add(cartCallback);
     }
 }

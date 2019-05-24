@@ -7,11 +7,11 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class DynamicPage extends Page {
+public class DynamicDialogPage extends Page {
 
     private Object object;
 
-    DynamicPage(String name, String layoutAddress) {
+    DynamicDialogPage(String name, String layoutAddress) {
         super(name, layoutAddress);
     }
 

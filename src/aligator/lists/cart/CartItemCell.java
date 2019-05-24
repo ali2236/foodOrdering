@@ -70,7 +70,9 @@ public class CartItemCell extends ListCell<CartItem> {
     }
 
     void spinnerChanged(ObservableValue observable, Integer oldValue, Integer newValue){
-        Cart.getInstence().setItem(item.item,newValue);
+        if (item != null){
+            Cart.getInstence().setItem(item.item,newValue);
+        }
     }
 
     private void onDelete(ActionEvent event){

@@ -18,7 +18,7 @@
        <ListView fx:id="listView" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
            
        </ListView>
-      <Button fx:id="pay" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #bb1eff;" text="پرداخت" textFill="WHITE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="16.0">
+      <Button fx:id="pay" onAction="#onPay" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #bb1eff;" text="پرداخت" textFill="WHITE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="16.0">
          <font>
             <Font name="Vazir" size="13.0" />
          </font>
