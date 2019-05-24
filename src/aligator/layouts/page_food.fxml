@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aligator.controllers.FoodController">
     <AnchorPane prefHeight="80" prefWidth="600" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
         <children>
-            <HBox alignment="CENTER" layoutX="463.0" layoutY="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="10.0">
+            <HBox alignment="CENTER" layoutX="463.0" layoutY="10.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="10.0">
                 <children>
                     <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="نام غذا">
                         <font>
@@ -28,7 +28,7 @@
             </HBox>
             <VBox alignment="CENTER" layoutX="14.0" layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="11.0">
                 <children>
-                    <Button fx:id="add_to_basket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxWidth="80.0" mnemonicParsing="false" style="-fx-background-color: #bb1eff;" text="اضافه به سبد" textFill="WHITE">
+                    <Button fx:id="add_to_basket" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxWidth="80.0" mnemonicParsing="false" onAction="#addToCart" style="-fx-background-color: #bb1eff;" text="اضافه به سبد" textFill="WHITE">
                         <VBox.margin>
                             <Insets bottom="8.0" />
                         </VBox.margin>
@@ -36,9 +36,14 @@
                             <Font name="Vazir Medium" size="12.0" />
                         </font>
                     </Button>
+               <Button fx:id="shop" maxWidth="80.0" onAction="#goToShop" style="-fx-background-color: #adadad;" text="فروشنده" textFill="WHITE">
+                  <font>
+                     <Font name="Vazir" size="12.0" />
+                  </font>
+               </Button>
                 </children>
             </VBox>
-            <HBox layoutX="312.0" layoutY="49.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="98.0">
+            <HBox layoutX="312.0" layoutY="49.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="98.0">
                 <children>
                     <Text fx:id="delivery_price" strokeType="OUTSIDE" strokeWidth="0.0" text="هزینه ارسال : 2000">
                         <font>
@@ -54,18 +59,22 @@
                     </Text>
                 </children>
             </HBox>
-         <Spinner fx:id="spinner" layoutX="109.0" layoutY="24.0" prefWidth="50.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="24.0" />
+         <Spinner fx:id="spinner" layoutX="109.0" layoutY="24.0" prefWidth="50.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="14.0" />
         </children></AnchorPane>
-   <Text layoutX="518.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="توضیحات" AnchorPane.rightAnchor="14.693359375">
-      <font>
-         <Font name="Vazir Thin" size="18.0" />
-      </font>
-   </Text>
-   <Text fx:id="description" layoutX="517.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="توضیحات" AnchorPane.rightAnchor="30.650390625">
-      <font>
-         <Font name="Vazir" size="14.0" />
-      </font>
-   </Text>
+   <AnchorPane layoutX="507.0" layoutY="157.0" prefHeight="222.0" prefWidth="320.0" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="160.0">
+      <children>
+         <Text layoutX="0.95703125" strokeType="OUTSIDE" strokeWidth="0.0" text="توضیحات" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.0">
+            <font>
+               <Font name="Vazir Thin" size="18.0" />
+            </font>
+         </Text>
+         <Text fx:id="description" layoutY="35.1015625" strokeType="OUTSIDE" strokeWidth="0.0" text="توضیحات" textAlignment="RIGHT" wrappingWidth="300.349609375" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="32.0">
+            <font>
+               <Font name="Vazir" size="14.0" />
+            </font>
+         </Text>
+      </children>
+   </AnchorPane>
    <AnchorPane layoutX="44.0" layoutY="-86.0" prefHeight="48.0" prefWidth="200.0" style="-fx-background-color: #bb1eff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-0.0">
       <children>
          <Text fill="WHITE" layoutX="563.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="سیمرغ" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="4.0">

@@ -30,6 +30,10 @@ public abstract class Food extends Product {
         }
     }
 
+    public Restaurant getRestaurant(){
+        return (Restaurant) shop;
+    }
+
     public String getDeliveryPrice() {
        return ((Restaurant)shop).getDeliveryPolicy(this);
     }

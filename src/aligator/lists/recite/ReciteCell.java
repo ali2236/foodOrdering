@@ -1,35 +1,38 @@
-package aligator.lists.cart;
+package aligator.lists.recite;
 
 import aligator.models.Cart;
-import aligator.models.CartItem;
-import javafx.beans.value.ObservableValue;
+import aligator.models.Food;
+import aligator.models.Recite;
+import aligator.navigation.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.ListCell;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class CartItemCell extends ListCell<CartItem> {
+public class ReciteCell extends ListCell<Recite> {
 
-    private CartItem item;
+    private Recite item;
 
     @FXML
-    public Text name;
+    public Text date;
     @FXML
-    public Text price;
+    public Text total;
     @FXML
-    public Button delete;
+    public Button show;
 
-    public CartItemCell(){
+    public ReciteCell(){
         loadFXML();
     }
 
     @FXML
     private void loadFXML(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../layouts/cell_cart_item.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../layouts/cell_recite.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
@@ -40,29 +43,28 @@ public class CartItemCell extends ListCell<CartItem> {
     }
 
     @Override
-    protected void updateItem(CartItem item, boolean empty) {
+    protected void updateItem(Recite item, boolean empty) {
         super.updateItem(item, empty);
 
-        if (empty || item==null) {
+        if (empty) {
             setText(null);
             setContentDisplay(ContentDisplay.TEXT_ONLY);
             this.item = null;
         } else {
             this.item = item;
 
-                // set data
-                name.setText(item.item.getName());
-                price.setText(item.amount + " x " + item.item.getPrice());
-                delete.setOnAction(this::onDelete);
+            // set data
+            date.setText(item.date.toString());
+            total.setText(item.total.toString());
+            show.setOnAction(this::onShowClicked);
 
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
         }
     }
 
-
-    private void onDelete(ActionEvent event){
-        Cart.getInstence().removeItem(item.id);
+    private void onShowClicked(ActionEvent event){
+        Navigation.toDynamicDialog("recite",item);
     }
 
     @Override

@@ -14,7 +14,7 @@
          <children>
             <Button fx:id="cart" layoutX="21.0" layoutY="12.0" mnemonicParsing="false" onAction="#onCartButtonClicked" text="سبد خرید" />
             <Button layoutX="93.0" layoutY="12.0" mnemonicParsing="false" text="رهگیری" />
-            <Button fx:id="profile" onAction="#onProfileButtonClicked" layoutX="153.0" layoutY="12.0" mnemonicParsing="false" text="حساب کاربری" />
+            <Button fx:id="profile" layoutX="153.0" layoutY="12.0" mnemonicParsing="false" onAction="#onProfileButtonClicked" text="حساب کاربری" />
             <Text fill="WHITE" layoutX="498.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="سیمرغ" AnchorPane.rightAnchor="16.0">
                <font>
                   <Font name="Vazir" size="24.0" />
@@ -24,7 +24,7 @@
       </AnchorPane>
       <VBox alignment="CENTER" layoutY="46.0" prefHeight="306.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
          <children>
-            <ListView fx:id="listView" maxHeight="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" VBox.vgrow="ALWAYS">
+            <ListView fx:id="listView" maxHeight="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" VBox.vgrow="ALWAYS">
                <cellFactory>
                   <FoodCellFactory />
                </cellFactory>

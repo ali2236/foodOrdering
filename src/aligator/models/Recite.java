@@ -7,7 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Recite implements Serializable {
-    public PersianDate date = new PersianDate();
-    public List<CartItem> products = new ArrayList<CartItem>();
-    public Double total = 0.0;
+    public PersianDate date;
+    public List<CartItem> products;
+    public Double total;
+
+    public Recite(PersianDate date,List<CartItem> products,Double total){
+        this.date = date;
+        this.products = products;
+        this.total = total;
+    }
 }

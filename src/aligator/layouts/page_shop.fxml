@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import aligator.lists.food.FoodCellFactory?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aligator.controllers.ShopController">
+
+    <AnchorPane layoutX="66.0" layoutY="-59.0" prefHeight="48.0" prefWidth="600.0" style="-fx-background-color: #bb1eff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="سیمرغ" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="4.0">
+                <font>
+                    <Font name="Vazir" size="24.0" />
+                </font>
+            </Text>
+            <Button fx:id="main" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#goToMain" text="صفحه اصلی" />
+        </children>
+    </AnchorPane>
+   <AnchorPane layoutX="118.0" layoutY="66.0" prefHeight="96.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
+      <children>
+         <Circle fill="#e1e1e1" layoutX="493.0" layoutY="86.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="16.0" />
+         <Text fx:id="name" layoutX="476.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="نام" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="30.0">
+            <font>
+               <Font name="Vazir" size="18.0" />
+            </font>
+         </Text>
+         <VBox alignment="CENTER_RIGHT" layoutX="32.0" layoutY="24.0" prefHeight="63.0" prefWidth="243.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="24.0">
+            <children>
+               <Text fx:id="phone" fill="#505050" strokeType="OUTSIDE" strokeWidth="0.0" text="شماره تماس : ">
+                  <font>
+                     <Font name="Vazir" size="13.0" />
+                  </font>
+               </Text>
+               <Text fx:id="address" fill="#505050" strokeType="OUTSIDE" strokeWidth="0.0" text="آدرس : ">
+                  <font>
+                     <Font name="Vazir" size="13.0" />
+                  </font>
+               </Text>
+               <Text fx:id="hours" fill="#505050" strokeType="OUTSIDE" strokeWidth="0.0" text="ساعات کاری : ">
+                  <font>
+                     <Font name="Vazir" size="13.0" />
+                  </font>
+               </Text>
+            </children>
+         </VBox>
+      </children>
+   </AnchorPane>
+    <ListView fx:id="listView" layoutY="146.0" prefHeight="254.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="144.0">
+        <cellFactory>
+            <FoodCellFactory />
+        </cellFactory>
+    </ListView>
+
+</AnchorPane>

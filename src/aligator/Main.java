@@ -11,6 +11,7 @@ import aligator.navigation.RegisterNavigation;
 import aligator.navigation.Navigation;
 import aligator.storage.Storage;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class Main extends Application implements RegisterNavigation, RegisterFile {
@@ -20,6 +21,7 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
         seed();
         addPrimaryStage(primaryStage);
         addPages();
+        addFiles();
         Navigation.to("main");
     }
 
@@ -38,17 +40,22 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
         Navigation.addDynamicPage("food",BaseAddress + "page_food.fxml");
         Navigation.addDialogPage("cart",BaseAddress + "dialog_cart.fxml");
         Navigation.addDynamicDialogPage("recite",BaseAddress + "dialog_recite.fxml");
+        Navigation.addDynamicPage("shop",BaseAddress+"page_shop.fxml");
     }
 
     @Override
     public void addFiles() {
-        final String BaseAddress = "/data/";
+        final String BaseAddress = "data/";
+        File file = new File(BaseAddress);
+        if (!file.exists()){
+            file.mkdir();
+        }
         FileServer.addAppFile("recites",BaseAddress + "recites.smg");
         FileServer.addAppFile("tracking",BaseAddress + "tracking.smg");
     }
 
     private void seed(){
-        Restaurant r1 = new Restaurant("تک فود","+9812547852", Arrays.asList(
+        Restaurant r1 = new Restaurant("تک فود","012547852", Arrays.asList(
                 new Drink("غذای 1",9.999,10,false,0.200),
                 new Drink("غذای 2",15.999,10,true,1),
                 new Meal("غذای 3",5.000,10,true,1),
@@ -56,11 +63,13 @@ public class Main extends Application implements RegisterNavigation, RegisterFil
                 new Meal("غذای 5",52.000,10,true,5)
         ));
 
-        Restaurant r2 = new Restaurant("فودستان","+9812547852", Arrays.asList(
+        Restaurant r2 = new Restaurant("فودستان","012547852", Arrays.asList(
                 new Drink("غذای 6",7.000,10,true,0.300),
                 new Drink("غذای 7",1.000,10,true,0.100),
                 new Meal("غذای 8",21.000,10,false,1)
         ));
+
+        //Restaurant r3 = new Restaurant("")
 
         Storage.restaurants.add(r1);
         Storage.restaurants.add(r2);

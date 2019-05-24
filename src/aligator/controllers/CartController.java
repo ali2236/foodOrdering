@@ -1,5 +1,6 @@
 package aligator.controllers;
 
+import aligator.file.FileServer;
 import aligator.lists.cart.CartItemCellFactory;
 import aligator.models.Cart;
 import aligator.models.CartCallback;
@@ -32,6 +33,7 @@ public class CartController implements CartCallback {
     }
 
     private void setItems(){
+        listView.setItems(null);
         ObservableList<CartItem> list = FXCollections.observableArrayList(Cart.getInstence().getItems().values());
         listView.setItems(list);
         setTotal();
@@ -41,6 +43,7 @@ public class CartController implements CartCallback {
     public void onPay(ActionEvent event){
         Recite recite = Cart.getInstence().generateRecite();
         Navigation.toDynamicDialog("recite",recite);
+        FileServer.appendItem("recites",recite);
     }
 
     private void setTotal(){

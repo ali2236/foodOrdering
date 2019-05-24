@@ -1,6 +1,8 @@
 package aligator.models;
 
-public abstract class Product {
+import java.io.Serializable;
+
+public abstract class Product implements Serializable {
     private static Integer ID = 0;
     private Integer id;
     private String name;

@@ -1,6 +1,8 @@
 package aligator.models;
 
-public class CartItem {
+import java.io.Serializable;
+
+public class CartItem implements Serializable {
     public Integer id;
     public Product item;
     public Integer amount;

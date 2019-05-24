@@ -2,13 +2,11 @@ package aligator.models;
 
 
 import aligator.controllers.CartController;
+import aligator.utils.PersianDate;
 import com.sun.javafx.collections.ObservableMapWrapper;
 import javafx.collections.ObservableMap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // singleton
 public class Cart {
@@ -64,10 +62,11 @@ public class Cart {
     }
 
     public Recite generateRecite(){
-        Recite recite = new Recite();
-        recite.total = getTotal();
-        recite.products.addAll(orders.values());
-        return recite;
+        return new Recite(
+                new PersianDate(),
+                new ArrayList<>(orders.values()),
+                getTotal()
+        );
     }
 
     public Map<Integer,CartItem> getItems() {

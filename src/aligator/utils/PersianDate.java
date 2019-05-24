@@ -10,13 +10,12 @@ public class PersianDate implements Serializable {
     private long milies;
 
     public PersianDate(){
-        PersianCalendar persianCalendar = new PersianCalendar();
-        milies = persianCalendar.getTimeInMillis();
+        milies = new Date().getTime();
     }
 
     @Override
     public String toString() {
-        Date d = new Date();
+        Date d = new Date(milies);
         String time = new SimpleDateFormat("HH:mm:ss").format(d);
 
         PersianCalendar persianCalendar = new PersianCalendar(milies);
