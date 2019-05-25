@@ -42,4 +42,9 @@ public abstract class Shop<T extends Product> implements Serializable {
     public String getWorkingHours() {
         return workingHours;
     }
+
+    @Override
+    public int hashCode() {
+        return 31 * name.hashCode();
+    }
 }

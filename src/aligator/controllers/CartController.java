@@ -44,6 +44,7 @@ public class CartController implements CartCallback {
         Recite recite = Cart.getInstence().generateRecite();
         Navigation.toDynamicDialog("recite",recite);
         FileServer.appendItem("recites",recite);
+        Cart.getInstence().clear();
     }
 
     private void setTotal(){

@@ -25,4 +25,9 @@ public class PersianDate implements Serializable {
 
         return String.format("%d/%d/%d - %s",year,month,day,time);
     }
+
+    @Override
+    public int hashCode() {
+        return (int) milies;
+    }
 }

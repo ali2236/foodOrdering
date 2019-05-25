@@ -31,4 +31,8 @@ public class MainController {
     public void onProfileButtonClicked(ActionEvent event){
         Navigation.to("profile");
     }
+
+    public void goToTracking(ActionEvent event) {
+        Navigation.to("tracking");
+    }
 }

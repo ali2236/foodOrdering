@@ -1,15 +1,26 @@
 package aligator.controllers;
 
 import aligator.models.CartItem;
-import aligator.models.Product;
+import aligator.models.CartItemTableItem;
 import aligator.models.Recite;
 import aligator.navigation.IDynamicPage;
+import javafx.collections.FXCollections;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReciteController implements IDynamicPage {
 
+    public TableView table;
+    public TableColumn<CartItemTableItem, Integer> indices;
+    public TableColumn<CartItemTableItem, String> names;
+    public TableColumn<CartItemTableItem, Integer> counts;
+    public TableColumn<CartItemTableItem, Double> prices;
+    public TableColumn<CartItemTableItem, Double> totalPrices;
     private Recite recite;
 
     public Text items;
@@ -24,8 +35,26 @@ public class ReciteController implements IDynamicPage {
         recite = (Recite) object;
 
         date.setText(recite.date.toString());
-        setItems(recite.products);
+        //setItems(recite.products);
         total.setText(recite.total.toString());
+        tracking.setText("کد رهگیری : "+recite.getTrackingCode());
+        configureTable(recite.products);
+    }
+
+    private void configureTable(List<CartItem> items){
+        List<CartItemTableItem> tableItems = new ArrayList<>(items.size());
+        int index = 1;
+        for (CartItem cartItem : items){
+            tableItems.add(new CartItemTableItem(index++,cartItem));
+        }
+
+        indices.setCellValueFactory(new PropertyValueFactory<>("index"));
+        names.setCellValueFactory(new PropertyValueFactory<>("name"));
+        counts.setCellValueFactory(new PropertyValueFactory<>("count"));
+        prices.setCellValueFactory(new PropertyValueFactory<>("price"));
+        totalPrices.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+        table.setItems(FXCollections.observableList(tableItems));
     }
 
     private void setItems(List<CartItem> items){

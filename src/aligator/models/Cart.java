@@ -1,12 +1,12 @@
 package aligator.models;
 
 
-import aligator.controllers.CartController;
 import aligator.utils.PersianDate;
-import com.sun.javafx.collections.ObservableMapWrapper;
-import javafx.collections.ObservableMap;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // singleton
 public class Cart {
@@ -75,5 +75,10 @@ public class Cart {
 
     public void addListener(CartCallback cartCallback) {
         callbacks.add(cartCallback);
+    }
+
+    public void clear() {
+        orders.clear();
+        invokeUpdate();
     }
 }

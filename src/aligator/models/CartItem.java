@@ -12,4 +12,9 @@ public class CartItem implements Serializable {
         this.item = item;
         this.amount = amount;
     }
+
+    @Override
+    public int hashCode() {
+        return 15 * id + item.hashCode() + amount;
+    }
 }

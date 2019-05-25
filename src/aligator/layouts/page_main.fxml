@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="48.0" prefWidth="600.0" style="-fx-background-color: #bb1eff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="cart" layoutX="21.0" layoutY="12.0" mnemonicParsing="false" onAction="#onCartButtonClicked" text="سبد خرید" />
-            <Button layoutX="93.0" layoutY="12.0" mnemonicParsing="false" text="رهگیری" />
+            <Button fx:id="tracking" onAction="#goToTracking" layoutX="93.0" layoutY="12.0" mnemonicParsing="false" text="رهگیری" />
             <Button fx:id="profile" layoutX="153.0" layoutY="12.0" mnemonicParsing="false" onAction="#onProfileButtonClicked" text="حساب کاربری" />
             <Text fill="WHITE" layoutX="498.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="سیمرغ" AnchorPane.rightAnchor="16.0">
                <font>

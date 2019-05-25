@@ -44,4 +44,9 @@ public abstract class Product implements Serializable {
     public Integer getStock() {
         return stock;
     }
+
+    @Override
+    public int hashCode() {
+        return 31 * id + name.hashCode() + price.hashCode() + description.hashCode() + shop.hashCode();
+    }
 }
