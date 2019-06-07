@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -22,21 +23,26 @@
                   <Insets top="32.0" />
                </VBox.margin>
             </Text>
-            <HBox alignment="CENTER" prefHeight="303.0" prefWidth="600.0">
+            <VBox alignment="CENTER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ثبت نام" textAlignment="CENTER">
+                     <font>
+                        <Font name="Vazir Medium" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="error_text" fill="#cd2626" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Vazir Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                <children>
       
                    <VBox nodeOrientation="RIGHT_TO_LEFT">
-                     <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
-                        <children>
-                           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ثبت نام" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-                              <font>
-                                 <Font name="Vazir Medium" size="18.0" />
-                              </font>
-                           </Text>
-                        </children>
-                     </HBox>
       
-                       <Text text="نام کاربری">
+                       <Text text="نام خانوادگی">
                         <VBox.margin>
                            <Insets bottom="4.0" />
                         </VBox.margin>
@@ -44,8 +50,8 @@
                            <Font name="Vazir" size="12.0" />
                         </font>
                      </Text>
-                       <TextField fx:id="username_field" />
-                       <Text text="رمزعیور">
+                       <TextField fx:id="last_name_field" />
+                       <Text text="شماره تلفن">
                         <VBox.margin>
                            <Insets bottom="4.0" />
                         </VBox.margin>
@@ -53,7 +59,7 @@
                            <Font name="Vazir" size="12.0" />
                         </font>
                      </Text>
-                       <PasswordField fx:id="password_field" />
+                       <PasswordField fx:id="phone_field" />
                        <Text text="تکرار رمز عبور">
                         <VBox.margin>
                            <Insets bottom="4.0" />
@@ -63,30 +69,80 @@
                            </font>
                      </Text>
                        <PasswordField fx:id="confirm_password_field" />
-                      <VBox alignment="CENTER">
-                          <Button fx:id="signup_button" onAction="#onSignUpButtonClicked" style="-fx-background-color: #bb1eff;" text="ثبت نام" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="Vazir Bold" size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="8.0" />
-                           </VBox.margin>
-                        </Button>
-                          <Button fx:id="signin_text" alignment="CENTER" onAction="#onLoginButtonClicked" style="-fx-background-color: #00000000;" text="ورود" textFill="#bb1eff">
-                           <VBox.margin>
-                              <Insets top="4.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Vazir" size="14.0" />
-                           </font>
-                        </Button>
-                        <opaqueInsets>
-                           <Insets />
-                        </opaqueInsets>
-                      </VBox>
+                     <opaqueInsets>
+                        <Insets right="16.0" />
+                     </opaqueInsets>
                    </VBox>
+                  <VBox layoutX="210.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT">
+                     <opaqueInsets>
+                        <Insets left="16.0" right="16.0" />
+                     </opaqueInsets>
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="16.0" stroke="TRANSPARENT" strokeType="INSIDE" width="16.0" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="110.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT">
+                     <children>
+                        <Text text="نام">
+                           <VBox.margin>
+                              <Insets bottom="4.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Vazir" size="12.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="first_name_field" />
+                        <Text text="email">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Vazir" size="12.0" />
+                           </font>
+                        </Text>
+                        <PasswordField fx:id="email_field" />
+                        <Text text="رمز عبور">
+                           <VBox.margin>
+                              <Insets bottom="4.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Vazir" size="12.0" />
+                           </font>
+                        </Text>
+                        <PasswordField fx:id="password_field" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets right="16.0" />
+                     </opaqueInsets>
+                  </VBox>
                </children>
             </HBox>
+            <VBox alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Button fx:id="signup_button" onAction="#onSignUpButtonClicked" style="-fx-background-color: #bb1eff;" text="ثبت نام" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Vazir Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="signin_button" alignment="CENTER" onAction="#onLoginButtonClicked" style="-fx-background-color: #00000000;" text="ورود" textFill="#bb1eff">
+                     <VBox.margin>
+                        <Insets top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Vazir" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="24.0" />
+               </padding>
+            </VBox>
          </children>
       </VBox>
    </children>
