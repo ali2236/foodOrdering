@@ -5,12 +5,11 @@ import aligator.lists.cart.CartItemCellFactory;
 import aligator.models.Cart;
 import aligator.models.CartCallback;
 import aligator.models.CartItem;
-import aligator.models.Recite;
+import aligator.models.Receipt;
 import aligator.navigation.Navigation;
+import aligator.storage.Users.UserManager;
 import javafx.collections.FXCollections;
-import javafx.collections.MapChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -41,9 +40,9 @@ public class CartController implements CartCallback {
 
     @FXML
     public void onPay(ActionEvent event){
-        Recite recite = Cart.getInstence().generateRecite();
-        Navigation.toDynamicDialog("recite",recite);
-        FileServer.appendItem("recites",recite);
+        Receipt receipt = Cart.getInstence().generatereceipt();
+        Navigation.toDynamicDialog("receipt",receipt);
+        FileServer.appendItem(UserManager.getSafeUsername()+"-recipes",receipt);
         Cart.getInstence().clear();
     }
 

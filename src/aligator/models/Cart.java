@@ -51,8 +51,8 @@ public class Cart {
         }
     }
 
-    public Double getTotal(){
-        double total = 0.0;
+    public Long getTotal(){
+        Long total = 0L;
         for (CartItem cartItem : orders.values()){
             if (cartItem != null){
                 total += cartItem.item.getPrice() * cartItem.amount;
@@ -61,8 +61,8 @@ public class Cart {
         return total;
     }
 
-    public Recite generateRecite(){
-        return new Recite(
+    public Receipt generatereceipt(){
+        return new Receipt(
                 new PersianDate(),
                 new ArrayList<>(orders.values()),
                 getTotal()

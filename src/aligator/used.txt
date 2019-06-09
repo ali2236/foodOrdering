@@ -8,7 +8,7 @@ Inheritance:
     - DynamicPage -> Page
 
 Generics:
-    - Shop<T>
+    - Shop<T extends Product>
 
 Interfaces:
     - Main -> INavigation
@@ -24,3 +24,9 @@ Overriding:
 Polymorphism:
     - Navigation -> pages
 
+Threads :
+    - UserAPI <-> AuthCallback
+
+Regex :
+    - email format verification
+    - phone number format verification

@@ -5,7 +5,7 @@ public abstract class Food extends Product {
     private Boolean servedHot;
     private Integer calories;
 
-    public Food(String name,Double price,Integer amount,Boolean servedHot){
+    public Food(String name,Long price,Integer amount,Boolean servedHot){
         super(name,price,"بدون توضیحات",amount);
         this.servedHot = servedHot;
     }

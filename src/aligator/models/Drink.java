@@ -7,7 +7,7 @@ public class Drink extends Food {
     private double volume;
     private Color color;
 
-    public Drink(String name, Double price, Integer amount,Boolean servedHot,double volume) {
+    public Drink(String name, Long price, Integer amount,Boolean servedHot,double volume) {
         super(name, price, amount, servedHot);
         setVolume(volume);
     }

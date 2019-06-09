@@ -1,18 +1,18 @@
 package aligator.models;
 
+import aligator.storage.Users.UserManager;
 import aligator.utils.PersianDate;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Recite implements Serializable {
+public class Receipt implements Serializable {
     public PersianDate date;
     public List<CartItem> products;
-    public Double total;
+    public Long total;
     private String trackingCode;
 
-    public Recite(PersianDate date,List<CartItem> products,Double total){
+    public Receipt(PersianDate date, List<CartItem> products, Long total){
         this.date = date;
         this.products = products;
         this.total = total;
@@ -24,14 +24,14 @@ public class Recite implements Serializable {
     }
 
     private String generateTrackingCode(){
-        int numberBase10 = Math.abs(hashCode());
+        int numberBase10 = Math.abs(hashCode() + UserManager.getCurrentUsername().hashCode());
         String numberBase32 = Integer.toString(numberBase10,32);
         return numberBase32;
     }
 
     @Override
     public int hashCode() {
-        return 3 * date.hashCode() + products.hashCode() + Double.hashCode(total);
+        return 3 * date.hashCode() + products.hashCode() + Long.hashCode(total);
 
     }
 }

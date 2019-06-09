@@ -1,8 +1,6 @@
-package aligator.lists.recite;
+package aligator.lists.receipt;
 
-import aligator.models.Cart;
-import aligator.models.Food;
-import aligator.models.Recite;
+import aligator.models.Receipt;
 import aligator.navigation.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +12,9 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class ReciteCell extends ListCell<Recite> {
+public class ReceiptCell extends ListCell<Receipt> {
 
-    private Recite item;
+    private Receipt item;
 
     @FXML
     public Text date;
@@ -25,14 +23,14 @@ public class ReciteCell extends ListCell<Recite> {
     @FXML
     public Button show;
 
-    public ReciteCell(){
+    public ReceiptCell(){
         loadFXML();
     }
 
     @FXML
     private void loadFXML(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../layouts/cell_recite.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../layouts/cell_receipt.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
@@ -43,7 +41,7 @@ public class ReciteCell extends ListCell<Recite> {
     }
 
     @Override
-    protected void updateItem(Recite item, boolean empty) {
+    protected void updateItem(Receipt item, boolean empty) {
         super.updateItem(item, empty);
 
         if (empty) {
@@ -64,7 +62,7 @@ public class ReciteCell extends ListCell<Recite> {
     }
 
     private void onShowClicked(ActionEvent event){
-        Navigation.toDynamicDialog("recite",item);
+        Navigation.toDynamicDialog("receipt",item);
     }
 
     @Override

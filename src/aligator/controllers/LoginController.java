@@ -1,37 +1,82 @@
 package aligator.controllers;
 
+import aligator.navigation.Navigation;
+import aligator.storage.Preferences;
+import aligator.storage.Users.AuthCallback;
+import aligator.storage.Users.Status;
+import aligator.storage.Users.UserAPI;
+import aligator.storage.Users.UserManager;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import aligator.navigation.Navigation;
-
-import static java.lang.Thread.sleep;
+import javafx.scene.text.Text;
 
 public class LoginController {
 
-    @FXML
-    private TextField username_field;
+    public Text error_text;
+    public TextField username_field;
+    public PasswordField password_field;
+    public Button login_button;
+    public Button signup_button;
+
+    private static Status emptyFormError = new Status(false, "یکی یا بیشتر از فرم‌ها خالی هستند.");
+
+    private boolean pendingRequest = false;
 
     @FXML
-    private PasswordField password_field;
-
-    @FXML
-    private Button login_button;
-
-    @FXML
-    private Button signup_button;
-
-
-    public void loginButtonClick(ActionEvent actionEvent){
-        String username = username_field.getText();
-        String password = password_field.getText();
-
-        Navigation.to("main");
+    public void initialize(){
+        username_field.setText(
+                Preferences.get("last_username")
+        );
     }
 
-    public void signUpButtonClick(ActionEvent event){
+    public void loginButtonClick(ActionEvent actionEvent) {
+        String username = username_field.getText();
+        String password = password_field.getText();
+        Status formStatus = isFormValid();
+        if (!formStatus.isSuccessful) {
+            showMassage(formStatus.massage);
+            return;
+        } else {
+            showMassage("");
+        }
+        if (pendingRequest) return;
+        UserAPI userAPI = new UserAPI();
+        userAPI.userLoginParallel(username, password,
+                new AuthCallback() {
+                    @Override
+                    public void onSuccess() {
+                        UserManager.setUser(username);
+                        pendingRequest = false;
+                        Platform.runLater(() -> {
+                            Preferences.put("last_username",username);
+                            Navigation.to("main");
+                        });
+                    }
+
+                    @Override
+                    public void onFail(String massage) {
+                        pendingRequest = false;
+                        showMassage(massage);
+                    }
+                });
+
+    }
+
+    private void showMassage(String massage) {
+        error_text.setText(massage);
+    }
+
+    private Status isFormValid() {
+        if (username_field.getText().isEmpty()) return emptyFormError;
+        if (password_field.getText().isEmpty()) return emptyFormError;
+        return new Status(true, "");
+    }
+
+    public void signUpButtonClick(ActionEvent event) {
         Navigation.to("signup");
     }
 }

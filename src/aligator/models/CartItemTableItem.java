@@ -1,7 +1,7 @@
 package aligator.models;
 
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class CartItemTableItem {
@@ -9,40 +9,40 @@ public class CartItemTableItem {
     private SimpleIntegerProperty index;
     private SimpleStringProperty name;
     private SimpleIntegerProperty count;
-    private SimpleDoubleProperty price;
-    private SimpleDoubleProperty total;
+    private SimpleLongProperty price;
+    private SimpleLongProperty total;
 
     public CartItemTableItem(int index,CartItem cartItem){
         this.index = new SimpleIntegerProperty(index);
         name = new SimpleStringProperty(cartItem.item.getName());
         count = new SimpleIntegerProperty(cartItem.amount);
-        price = new SimpleDoubleProperty(cartItem.item.getPrice());
-        total = new SimpleDoubleProperty(cartItem.item.getPrice() * cartItem.amount);
+        price = new SimpleLongProperty(cartItem.item.getPrice());
+        total = new SimpleLongProperty(cartItem.item.getPrice() * cartItem.amount);
     }
 
     // Auto generated getters and setters
 
-    public double getTotal() {
+    public Long getTotal() {
         return total.get();
     }
 
-    public SimpleDoubleProperty totalProperty() {
+    public SimpleLongProperty totalProperty() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(Long total) {
         this.total.set(total);
     }
 
-    public double getPrice() {
+    public Long getPrice() {
         return price.get();
     }
 
-    public SimpleDoubleProperty priceProperty() {
+    public SimpleLongProperty priceProperty() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price.set(price);
     }
 

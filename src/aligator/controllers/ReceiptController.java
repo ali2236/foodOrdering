@@ -2,8 +2,9 @@ package aligator.controllers;
 
 import aligator.models.CartItem;
 import aligator.models.CartItemTableItem;
-import aligator.models.Recite;
+import aligator.models.Receipt;
 import aligator.navigation.IDynamicPage;
+import aligator.storage.Users.UserManager;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,15 +14,15 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReciteController implements IDynamicPage {
+public class ReceiptController implements IDynamicPage {
 
     public TableView table;
     public TableColumn<CartItemTableItem, Integer> indices;
     public TableColumn<CartItemTableItem, String> names;
     public TableColumn<CartItemTableItem, Integer> counts;
-    public TableColumn<CartItemTableItem, Double> prices;
-    public TableColumn<CartItemTableItem, Double> totalPrices;
-    private Recite recite;
+    public TableColumn<CartItemTableItem, Long> prices;
+    public TableColumn<CartItemTableItem, Long> totalPrices;
+    private Receipt receipt;
 
     public Text items;
     public Text date;
@@ -32,13 +33,13 @@ public class ReciteController implements IDynamicPage {
 
     @Override
     public void setObject(Object object) {
-        recite = (Recite) object;
+        receipt = (Receipt) object;
 
-        date.setText(recite.date.toString());
-        //setItems(recite.products);
-        total.setText(recite.total.toString());
-        tracking.setText("کد رهگیری : "+recite.getTrackingCode());
-        configureTable(recite.products);
+        username.setText(UserManager.getCurrentUsername());
+        date.setText(receipt.date.toString());
+        total.setText(receipt.total.toString());
+        tracking.setText("کد رهگیری : "+receipt.getTrackingCode());
+        configureTable(receipt.products);
     }
 
     private void configureTable(List<CartItem> items){

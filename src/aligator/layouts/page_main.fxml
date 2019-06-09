@@ -3,14 +3,12 @@
 <?import aligator.lists.food.FoodCellFactory?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aligator.controllers.MainController">
    <children>
-      <AnchorPane prefHeight="48.0" prefWidth="600.0" style="-fx-background-color: #bb1eff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="48.0" prefWidth="600.0" style="-fx-background-color: #512da8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="cart" layoutX="21.0" layoutY="12.0" mnemonicParsing="false" onAction="#onCartButtonClicked" text="سبد خرید" />
             <Button fx:id="tracking" onAction="#goToTracking" layoutX="93.0" layoutY="12.0" mnemonicParsing="false" text="رهگیری" />

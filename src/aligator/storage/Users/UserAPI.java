@@ -14,6 +14,9 @@ import java.util.Scanner;
 
 public class UserAPI implements IUserAPI {
 
+    private static long waiting = 2 * 1000;
+    private static String timeLimitError = "";
+
     private static Status programmingError = new Status(false,"خطایی پیش آمده!");
     private static Status serverOutOfReachError = new Status(false,"دسترسی به سرور امکان پذیر نیست.");
     private static Status sendingDataError = new Status(false,"در ارسال داده ها مشکلی پیش آمده.");
@@ -113,6 +116,25 @@ public class UserAPI implements IUserAPI {
         return new Status(status,massage);
     }
 
+    private static long _lastLoginAttempt = 0;
+    public void userLoginParallel(String username, String password,AuthCallback callbacks){
+        long now = System.currentTimeMillis();
+        long delta = now - _lastLoginAttempt;
+        if (delta< waiting) {
+            callbacks.onFail(timeLimitError);
+            return;
+        } else {
+            _lastLoginAttempt = now;
+        }
+        Thread thread = new Thread(()-> {
+            Status loginStatus = userLogin(username, password);
+            if (loginStatus.isSuccessful) callbacks.onSuccess();
+            else callbacks.onFail(loginStatus.massage);
+        });
+
+        thread.start();
+    }
+
     @Override
     public Status userSignup(String firstName, String lastName, String email, String phone, String password) {
         JSONObject signupBody;
@@ -209,6 +231,26 @@ public class UserAPI implements IUserAPI {
 
         //return new Status(true,"ثبت نام با موفقیت انجام شد.");
     }
+
+    private static long _lastSignupAttempt = 0;
+    public void userSignupParallel(String firstName, String lastName, String email, String phone, String password,AuthCallback callbacks){
+        long now = System.currentTimeMillis();
+        long delta = now - _lastSignupAttempt;
+        if (delta < waiting) {
+            callbacks.onFail(timeLimitError);
+            return;
+        } else {
+            _lastSignupAttempt = now;
+        }
+        Thread thread = new Thread(()-> {
+            Status signupStatus = userSignup(firstName, lastName, email, phone, password);
+            if (signupStatus.isSuccessful) callbacks.onSuccess();
+            else callbacks.onFail(signupStatus.massage);
+        });
+
+        thread.start();
+    }
+
 /* TEST
     public static void main(String[] args) {
         UserAPI api = new UserAPI();

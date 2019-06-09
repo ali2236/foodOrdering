@@ -6,12 +6,12 @@ public abstract class Product implements Serializable {
     private static Integer ID = 0;
     private Integer id;
     private String name;
-    private Double price;
+    private Long price;
     private String description;
     private Integer stock;
     protected Shop shop;
 
-    protected Product(String name, Double price, String description, Integer stock) {
+    protected Product(String name, Long price, String description, Integer stock) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -29,7 +29,7 @@ public abstract class Product implements Serializable {
         return name;
     }
 
-    public Double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
