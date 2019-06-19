@@ -1,4 +1,4 @@
-package aligator.storage.Users;
+package aligator.storage.users;
 
 import org.json.JSONException;
 import org.json.JSONObject;

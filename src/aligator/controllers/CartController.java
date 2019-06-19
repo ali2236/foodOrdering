@@ -7,7 +7,7 @@ import aligator.models.CartCallback;
 import aligator.models.CartItem;
 import aligator.models.Receipt;
 import aligator.navigation.Navigation;
-import aligator.storage.Users.UserManager;
+import aligator.storage.users.UserManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

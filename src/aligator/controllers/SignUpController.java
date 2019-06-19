@@ -2,9 +2,9 @@ package aligator.controllers;
 
 
 import aligator.navigation.Navigation;
-import aligator.storage.Users.AuthCallback;
-import aligator.storage.Users.Status;
-import aligator.storage.Users.UserAPI;
+import aligator.storage.users.AuthCallback;
+import aligator.storage.users.Status;
+import aligator.storage.users.UserAPI;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;

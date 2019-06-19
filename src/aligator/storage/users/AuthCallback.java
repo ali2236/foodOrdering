@@ -1,4 +1,4 @@
-package aligator.storage.Users;
+package aligator.storage.users;
 
 public interface AuthCallback {
     void onSuccess();

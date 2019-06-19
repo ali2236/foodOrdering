@@ -1,6 +1,6 @@
 package aligator.models;
 
-import aligator.storage.Users.UserManager;
+import aligator.storage.users.UserManager;
 import aligator.utils.PersianDate;
 
 import java.io.Serializable;

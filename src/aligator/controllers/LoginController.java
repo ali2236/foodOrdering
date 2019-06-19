@@ -2,10 +2,10 @@ package aligator.controllers;
 
 import aligator.navigation.Navigation;
 import aligator.storage.Preferences;
-import aligator.storage.Users.AuthCallback;
-import aligator.storage.Users.Status;
-import aligator.storage.Users.UserAPI;
-import aligator.storage.Users.UserManager;
+import aligator.storage.users.AuthCallback;
+import aligator.storage.users.Status;
+import aligator.storage.users.UserAPI;
+import aligator.storage.users.UserManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

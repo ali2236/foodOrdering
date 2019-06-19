@@ -1,6 +1,7 @@
 package aligator.lists.food;
 
 import aligator.models.Cart;
+import aligator.models.Food;
 import aligator.navigation.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ListCell;
 import javafx.scene.text.Text;
-import aligator.models.Food;
+
 import java.io.IOException;
 
 public class FoodCell extends ListCell<Food> {
@@ -74,7 +75,9 @@ public class FoodCell extends ListCell<Food> {
     private void onAddToBasketClicked(ActionEvent event){
         Cart c = Cart.getInstence();
         Integer last = c.getItem(item.getId());
-        c.setItem(item,last+1);
+        if (last < item.getStock()) {
+            c.setItem(item, last + 1);
+        }
     }
 
     @Override

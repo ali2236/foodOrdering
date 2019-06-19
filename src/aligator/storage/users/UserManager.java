@@ -1,6 +1,7 @@
-package aligator.storage.Users;
+package aligator.storage.users;
 
 import aligator.file.FileServer;
+import aligator.navigation.Navigation;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,5 +41,10 @@ public class UserManager {
             }
         }
         FileServer.addAppFile(getSafeUsername()+"-recipes",BaseAddress+getSafeUsername()+"-recipes.smg");
+    }
+
+    public static void logout() {
+        signedInUsername = null;
+        Navigation.to("login");
     }
 }

@@ -1,4 +1,4 @@
-package aligator.storage.Users;
+package aligator.storage.users;
 
 public class Status {
     public final boolean isSuccessful;

@@ -4,7 +4,7 @@ import aligator.file.FileServer;
 import aligator.lists.receipt.ReceiptCellFactory;
 import aligator.models.Receipt;
 import aligator.navigation.Navigation;
-import aligator.storage.Users.UserManager;
+import aligator.storage.users.UserManager;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,5 +29,9 @@ public class ProfileController {
 
     public void goToMain(ActionEvent event){
         Navigation.to("main");
+    }
+
+    public void logout(ActionEvent event) {
+        UserManager.logout();
     }
 }

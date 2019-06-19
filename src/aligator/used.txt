@@ -1,6 +1,10 @@
 
+TODO:
+    - add search functionality
+
 Exceptions :
-    - navigation
+    - navigation Package
+    - storage.users.UserAPI
 
 Inheritance:
     - Food -> Product
@@ -16,7 +20,7 @@ Interfaces:
     - Cart -> CartCallback
 
 Overloading:
-    - Cart
+    - Cart Class
 
 Overriding:
     - DynamicPage -> Page
@@ -30,3 +34,14 @@ Threads :
 Regex :
     - email format verification
     - phone number format verification
+
+Dependency Injection:
+    - Dynamic Pages -> Navigation
+
+Dependency Diagrams:
+    - models
+    - navigation
+    - storage.users
+
+outsider code:
+    - utils.PersianCalendar

@@ -4,7 +4,7 @@ import aligator.models.CartItem;
 import aligator.models.CartItemTableItem;
 import aligator.models.Receipt;
 import aligator.navigation.IDynamicPage;
-import aligator.storage.Users.UserManager;
+import aligator.storage.users.UserManager;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

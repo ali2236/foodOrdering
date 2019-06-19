@@ -19,7 +19,10 @@ public class FileServer {
             try {
                 FileInputStream fileInputStream = new FileInputStream(file);
                 ObjectInputStream objectInputStream =new ObjectInputStream(fileInputStream);
-                arrayList = (ArrayList<T>) objectInputStream.readObject();
+                Object persistentObject = objectInputStream.readObject();
+                if (persistentObject!=null) {
+                        arrayList = (ArrayList<T>)persistentObject;
+                }
                 objectInputStream.close();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
