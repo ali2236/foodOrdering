@@ -24,7 +24,7 @@
             <children>
                <HBox alignment="CENTER" prefHeight="44.0" prefWidth="358.0">
                   <children>
-                     <Button fx:id="search_button" mnemonicParsing="false" text="جستجو">
+                     <Button fx:id="search_button" mnemonicParsing="false" onAction="#search" text="جستجو">
                         <HBox.margin>
                            <Insets right="8.0" />
                         </HBox.margin>
