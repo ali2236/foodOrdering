@@ -79,4 +79,15 @@ public class LoginController {
     public void signUpButtonClick(ActionEvent event) {
         Navigation.to("signup");
     }
+
+    public void guestLogin(ActionEvent event) {
+        String username = username_field.getText();
+        if(username.isEmpty()){
+            showMassage("نام کاربری نمی تواند خالی باشد!");
+        } else {
+            UserManager.setUser(username);
+            Preferences.put("last_username", username);
+            Navigation.to("main");
+        }
+    }
 }
